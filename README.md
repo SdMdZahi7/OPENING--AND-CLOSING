@@ -6,75 +6,73 @@ To implement Opening and Closing using Python and OpenCV.
 1. Anaconda - Python 3.7
 2. OpenCV
 ## Algorithm:
-### Step1:
-<br>
+### Step 1:
+Import the necessary packages.
+
+### Step 2:
+Create the Text using cv2.putText.
+
+### Step 3:
+Create the structuring element.
+
+### Step 4:
+Use Opening operation.
 
 
-### Step2:
-<br>
+### Step 5:
+Use Closing Operation.
 
-### Step3:
-<br>
-
-### Step4:
-<br>
-
-### Step5:
-<br>
-
+### Step 6:
+Print the output and end the program.
  
 ## Program:
-
-``` Python
+~~~
 # Import the necessary packages
 
-
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
 
 # Create the Text using cv2.putText
 
-
+text_image = np.zeros((100,440),dtype = 'uint8')
+font = cv2.FONT_HERSHEY_SIMPLEX = 3
+cv2.putText(text_image," SD MD ZAHI",(5,70),font,2,(255),5,cv2.LINE_AA)
+plt.title("Original Image")
+plt.imshow(text_image)
+plt.axis('off')
 
 # Create the structuring element
 
-
+kernel = cv2.getStructuringElement(cv2.MORPH_CROSS,(11,11))
 
 # Use Opening operation
 
-
-
+opening_image = cv2.morphologyEx(text_image,cv2.MORPH_OPEN,kernel)
+plt.title("Opening")
+plt.imshow(opening_image)
+plt.axis('off')
 
 # Use Closing Operation
 
-
-
-
-
-```
+closing_image = cv2.morphologyEx(text_image,cv2.MORPH_CLOSE,kernel)
+plt.title("Closing")
+plt.imshow(closing_image)
+plt.axis('off')
+~~~
 ## Output:
 
 ### Display the input Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+![image](https://github.com/SdMdZahi7/OPENING--AND-CLOSING/assets/94187572/d8e1226c-c9a5-4fd7-a683-dc7ef26d07b4)
+
 
 ### Display the result of Opening
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+![image](https://github.com/SdMdZahi7/OPENING--AND-CLOSING/assets/94187572/71c85406-3618-4203-8ebd-998ef2ce7d7d)
+
 
 ### Display the result of Closing
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+![image](https://github.com/SdMdZahi7/OPENING--AND-CLOSING/assets/94187572/f37da061-7a08-4d26-9c65-59e3c371ba93)
+
 
 ## Result
 Thus the Opening and Closing operation is used in the image using python and OpenCV.
